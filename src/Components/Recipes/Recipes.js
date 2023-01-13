@@ -60,25 +60,25 @@ const Recipes = ({ recipesInfo }) => {
     setIsActive(6)
   }
 
-  useEffect(() => {}, [id])
-
   const clickHandler = (e) => {
+    console.log("clicked from handler")
     setClick(!click)
     setId(e.target.value)
   }
 
   const handleClickOutside = (e) => {
+    setClick(false)
     if (!myRef.current.contains(e.target)) {
       setClickedOutside(true)
     }
   }
 
   const handleClickInside = () => setClickedOutside(false)
-
   useEffect(() => {
+    console.log("click from useffect")
     document.addEventListener("mousedown", handleClickOutside)
     return () => document.removeEventListener("mousedown", handleClickOutside)
-  })
+  }, [id, click])
 
   const AutoList = ({ list }) => {
     return list.map((a, i) => {
@@ -94,10 +94,7 @@ const Recipes = ({ recipesInfo }) => {
         ))
       }
       return (
-        <div
-          className={styles.container}
-          ref={myRef}
-          onClick={handleClickInside}>
+        <div className={styles.container}>
           <div key={i} className={styles.recipesWrap}>
             <div>
               <img src={a.image} alt='recipes' className={styles.img} />
@@ -120,11 +117,13 @@ const Recipes = ({ recipesInfo }) => {
                 className={styles.moreBtn}>
                 MORE
               </button>
-              <div className={styles.infoWrap}>
-                {/* {clickedOutside ? !click : null} */}
-                {click && id == a.id ? (
+              <div
+                className={styles.infoWrap}
+                onClick={handleClickInside}
+                ref={myRef}>
+                {clickedOutside ? (
                   <>
-                    {clickedOutside ? (
+                    {click && id == a.id ? (
                       <div className={styles.stepIngredWrap}>
                         <div className={styles.ingred}>
                           <div className={styles.label}>
