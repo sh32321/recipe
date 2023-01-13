@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useRef } from "react"
 import styles from "../Recipes/recipes.module.scss"
 import { Link } from "react-router-dom"
 import Logo from "../Home/assets/Logo.svg"
@@ -27,6 +27,8 @@ const Recipes = ({ recipesInfo }) => {
   const [id, setId] = useState()
   const [filter, setFilter] = useState([])
   const [list] = useState(recipes)
+  const [clickedOutside, setClickedOutside] = useState(false)
+  const myRef = useRef()
 
   const allArr = () => {
     setFilter(recipes)
@@ -58,14 +60,25 @@ const Recipes = ({ recipesInfo }) => {
     setIsActive(6)
   }
 
-  useEffect(() => {
-    // console.log("id from recipes", id)
-  }, [id])
+  useEffect(() => {}, [id])
 
   const clickHandler = (e) => {
     setClick(!click)
     setId(e.target.value)
   }
+
+  const handleClickOutside = (e) => {
+    if (!myRef.current.contains(e.target)) {
+      setClickedOutside(true)
+    }
+  }
+
+  const handleClickInside = () => setClickedOutside(false)
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside)
+    return () => document.removeEventListener("mousedown", handleClickOutside)
+  })
 
   const AutoList = ({ list }) => {
     return list.map((a, i) => {
@@ -80,9 +93,11 @@ const Recipes = ({ recipesInfo }) => {
           </div>
         ))
       }
-      // console.log("ingredients", ingredients)
       return (
-        <div className={styles.container}>
+        <div
+          className={styles.container}
+          ref={myRef}
+          onClick={handleClickInside}>
           <div key={i} className={styles.recipesWrap}>
             <div>
               <img src={a.image} alt='recipes' className={styles.img} />
@@ -106,23 +121,30 @@ const Recipes = ({ recipesInfo }) => {
                 MORE
               </button>
               <div className={styles.infoWrap}>
+                {/* {clickedOutside ? !click : null} */}
                 {click && id == a.id ? (
-                  <div className={styles.stepIngredWrap}>
-                    <div className={styles.ingred}>
-                      <div className={styles.label}>
-                        <img src={Ingredient} alt='recipes' />
-                        <p className={styles.tag}>Ingredidents</p>
+                  <>
+                    {clickedOutside ? (
+                      <div className={styles.stepIngredWrap}>
+                        <div className={styles.ingred}>
+                          <div className={styles.label}>
+                            <img src={Ingredient} alt='recipes' />
+                            <p className={styles.tag}>Ingredidents</p>
+                          </div>
+                          <Ingred />
+                        </div>
+                        <div className={styles.steps}>
+                          <div className={styles.label}>
+                            <img src={Book} alt='recipes' />
+                            <p className={styles.tag}>Steps</p>
+                          </div>
+                          <RecipeCard id={id} steps={a} />
+                        </div>
                       </div>
-                      <Ingred />
-                    </div>
-                    <div className={styles.steps}>
-                      <div className={styles.label}>
-                        <img src={Book} alt='recipes' />
-                        <p className={styles.tag}>Steps</p>
-                      </div>
-                      <RecipeCard id={id} steps={a} />
-                    </div>
-                  </div>
+                    ) : (
+                      <p className={styles.none}>.</p>
+                    )}
+                  </>
                 ) : null}
               </div>
             </div>
@@ -149,7 +171,6 @@ const Recipes = ({ recipesInfo }) => {
       </header>
       <div className={styles.tabsContainer}>
         <div className={styles.tabsWrap}>
-          {/* {loading && <p>LOADING....</p>} */}
           <button
             onClick={allArr}
             className={isActive === 1 ? styles.active : styles.inActive}>
