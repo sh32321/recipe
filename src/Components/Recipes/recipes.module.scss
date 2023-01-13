@@ -1,0 +1,215 @@
+@import "../../scss/global.scss";
+
+.navWrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 40px 140px;
+  .linkWrap {
+    display: flex;
+    a {
+      text-decoration: none;
+    }
+    li {
+      color: $brown;
+      list-style: none;
+      &:hover {
+        color: #7d6a397a;
+        letter-spacing: 2px;
+        transition: 0.5s;
+      }
+    }
+    li:nth-child(1) {
+      padding-left: 16px;
+    }
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 48px 140px;
+  .recipesWrap {
+    display: flex;
+    padding: 0px 100px;
+
+    .infoWrap {
+      margin-top: 16px;
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  .descriWrap {
+    padding-left: 32px;
+    .moreBtn {
+      background-color: white;
+      padding: 8px 16px;
+      font-size: 14px;
+    }
+  }
+}
+
+.tabsContainer {
+  max-width: 80%;
+  margin: auto;
+
+  .tabsWrap {
+    border-radius: 24px;
+    padding: 16px 24px;
+    background-color: $darkGreen;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+
+    button {
+      letter-spacing: 0;
+      transition: 0.3s;
+    }
+
+    .active {
+      background-color: $lightGreen;
+      color: $lightGreenTextColor;
+      &:hover {
+        background-color: #becc91;
+        color: #7e825f;
+      }
+      img {
+        margin-right: 4px;
+      }
+    }
+
+    .inActive {
+      background-color: $beige;
+      color: $lightGreenTextColor;
+      &:hover {
+        background-color: #dae2c9;
+        color: #7e825f;
+      }
+      img {
+        margin-right: 4px;
+      }
+    }
+  }
+}
+
+.cookTimeWrap {
+  display: flex;
+  align-items: center;
+
+  img {
+    margin-right: 2px;
+  }
+  p {
+    padding-left: 16px;
+  }
+}
+
+.label {
+  display: inline-flex;
+  height: 30px;
+  align-items: center;
+  background-color: #efefef;
+  color: $lightGreenTextColor;
+  padding: 4px 12px;
+  border-radius: 16px;
+  .tag {
+    font-family: $secondaryFont;
+    padding-left: 0px;
+    font-size: 15px;
+  }
+}
+
+.ingredWrap {
+  p {
+    display: flex;
+    align-items: center;
+    img {
+      margin-right: 4px;
+    }
+  }
+}
+
+.stepIngredWrap {
+  background-color: white;
+  padding: 12px 24px;
+  // display: inline-block;
+  border-radius: 16px;
+
+  .ingred {
+    padding: 24px;
+  }
+  h4 {
+    display: flex;
+    align-items: center;
+    font-family: $secondaryFont;
+
+    img {
+      margin-right: 8px;
+    }
+  }
+
+  .steps {
+    padding: 24px;
+  }
+}
+
+.img {
+  width: 300px;
+  height: auto;
+  border-radius: 16px;
+}
+
+.footer {
+  margin-top: 100px;
+}
+footer {
+  background-color: $darkGreen;
+  display: flex;
+  justify-content: space-between;
+  padding: 100px 140px;
+  .newsWrap {
+    p {
+      font-size: 24px;
+      color: $beige;
+    }
+    .inputBtnWrap {
+      display: flex;
+      input {
+        background-color: $beige;
+        border: none;
+        border-radius: 8px;
+        padding: 12px 48px 12px 24px;
+        font-size: 14px;
+      }
+      .newsBtn {
+        margin-left: 16px;
+        display: flex;
+        align-items: center;
+        background-color: $lightGreen;
+        &:hover {
+          background-color: white;
+          letter-spacing: 2px;
+          transition: 0.7s;
+        }
+
+        img {
+          padding-left: 4px;
+        }
+      }
+    }
+  }
+
+  .socialWrap {
+    padding-top: 32px;
+
+    a {
+      align-content: center;
+      justify-content: center;
+    }
+
+    a:not(.x) {
+      padding-right: 16px;
+    }
+  }
+}

@@ -1,0 +1,38 @@
+@import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;500;600&family=Kumbh+Sans:wght@400;500;600&display=swap");
+
+body {
+  // font-family: 'Inconsolata', monospace;
+  font-family: "Kumbh Sans", sans-serif;
+  background-color: #f8fae4;
+  color: #7d6a39;
+  overflow-x: hidden;
+}
+
+button {
+  padding: 12px 24px;
+  background-color: #f9de79;
+  color: #7d6a39;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-family: "Kumbh Sans", sans-serif;
+  display: flex;
+  align-items: center;
+  &:hover {
+    background-color: #f9e48f;
+    letter-spacing: 2px;
+    transition: 0.5s;
+    color: #ae9d64;
+  }
+}
+
+$darkGreen: #658361;
+$lightGreen: #d4df9d;
+$beige: #f8fae4;
+$yellow: #f9de79;
+$brown: #7d6a39;
+
+$lightGreenTextColor: #666a45;
+
+$primaryFont: "Kumbh Sans", sans-serif;
+$secondaryFont: "Inconsolata", monospace;
