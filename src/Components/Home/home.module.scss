@@ -5,11 +5,14 @@
   flex-wrap: wrap;
   justify-content: space-between;
   padding: 40px 140px;
+  @include for-mobile-screen {
+    flex-wrap: nowrap;
+    padding: 40px 24px;
+  }
   .linkWrap {
     display: flex;
-    a {
-      text-decoration: none;
-    }
+    align-items: center;
+
     li {
       color: $brown;
       list-style: none;
@@ -29,20 +32,38 @@
   display: flex;
   justify-content: space-between;
   padding: 0px 140px;
+  @include for-mobile-screen {
+    padding: 0px 24px;
+    flex-direction: column;
+  }
+  img {
+    @include for-mobile-screen {
+      margin-top: 32px;
+      max-width: 90%;
+      margin: 40px auto;
+    }
+  }
 
   .titleWrap {
     padding-right: 24px;
-    a {
-      text-decoration: none;
+    @include for-mobile-screen {
+      padding-right: 0px;
     }
+
     h3 {
       font-weight: 600;
       font-size: 48px;
       letter-spacing: 4px;
+      @include for-mobile-screen {
+        font-size: 32px;
+      }
     }
     p {
       font-size: 32px;
       line-height: 140%;
+      @include for-mobile-screen {
+        font-size: 24px;
+      }
     }
   }
 }
@@ -53,30 +74,50 @@
   height: auto;
   position: relative;
   background-color: $lightGreen;
+
   .girl {
     display: inline-block;
     position: absolute;
     z-index: 100;
     top: -240px;
     right: 400px;
+    @include for-mobile-screen {
+      right: auto;
+    }
   }
   .wrap {
     padding: 100px 140px;
     display: flex;
+    @include for-mobile-screen {
+      flex-direction: column;
+      padding: 100px 24px;
+    }
     img {
-      width: 50%;
+      @include for-mobile-screen {
+        max-width: 90%;
+        margin: 56px auto;
+      }
     }
     .titleWrap {
       color: $lightGreenTextColor;
       padding: 32px 0 0 32px;
+      @include for-mobile-screen {
+        padding: 24px 0px;
+      }
       h3 {
         font-weight: 600;
         font-size: 48px;
         letter-spacing: 4px;
+        @include for-mobile-screen {
+          font-size: 32px;
+        }
       }
       p {
         font-size: 32px;
         line-height: 140%;
+        @include for-mobile-screen {
+          font-size: 24px;
+        }
       }
     }
   }
@@ -86,39 +127,66 @@
   margin-top: 100px;
   display: flex;
   padding: 100px 140px;
+  @include for-mobile-screen {
+    img {
+      max-width: 90%;
+      margin: auto;
+    }
+    flex-direction: column;
+    padding: 100px 24px;
+    margin-top: 0px;
+  }
   .titleWrap {
     padding-right: 24px;
+    @include for-mobile-screen {
+      padding-right: 0px;
+    }
     h3 {
       font-weight: 600;
       font-size: 48px;
       letter-spacing: 4px;
+      @include for-mobile-screen {
+        font-size: 32px;
+      }
     }
     p {
       font-size: 32px;
       line-height: 140%;
+      @include for-mobile-screen {
+        font-size: 24px;
+      }
     }
   }
 }
 
 .boyBg {
-  margin-top: 360px;
+  margin-top: 400px;
   padding-bottom: 100px;
   width: 100%;
   height: auto;
   position: relative;
   background-color: $lightGreen;
+
   .boy {
     display: inline-block;
     position: absolute;
     z-index: 100;
     top: -270px;
     right: 400px;
+    @include for-mobile-screen {
+      right: auto;
+    }
   }
   .wrap {
     padding: 100px 140px;
     display: flex;
-    img {
-      width: 50%;
+    @include for-mobile-screen {
+      img {
+        max-width: 90%;
+        margin: 56px auto;
+      }
+      padding: 100px 24px;
+      flex-direction: column;
     }
     .titleWrap {
       color: $lightGreenTextColor;
@@ -127,10 +195,16 @@
         font-weight: 600;
         font-size: 48px;
         letter-spacing: 4px;
+        @include for-mobile-screen {
+          font-size: 32px;
+        }
       }
       p {
         font-size: 32px;
         line-height: 140%;
+        @include for-mobile-screen {
+          font-size: 24px;
+        }
       }
     }
   }
@@ -141,13 +215,26 @@ footer {
   display: flex;
   justify-content: space-between;
   padding: 100px 140px;
+  @include for-mobile-screen {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 100px;
+  }
+
   .newsWrap {
     p {
       font-size: 24px;
       color: $beige;
+      @include for-mobile-screen {
+        font-size: 20px;
+      }
     }
     .inputBtnWrap {
       display: flex;
+      @include for-mobile-screen {
+        flex-direction: column;
+      }
       input {
         background-color: $beige;
         border: none;
@@ -160,9 +247,25 @@ footer {
         display: flex;
         align-items: center;
         background-color: $lightGreen;
+        @include for-mobile-screen {
+          justify-content: space-between;
+          margin-left: 0px;
+          width: 100%;
+          margin-top: 12px;
+          padding: 8px 16px;
+          font-size: 14px;
+        }
+        &:hover {
+          background-color: white;
+          letter-spacing: 2px;
+          transition: 0.7s;
+        }
 
         img {
           padding-left: 4px;
+          @include for-mobile-screen {
+            padding-left: 0px;
+          }
         }
       }
     }
@@ -178,6 +281,9 @@ footer {
 
     a:not(.x) {
       padding-right: 16px;
+    }
+    @include for-mobile-screen {
+      display: flex;
     }
   }
 }

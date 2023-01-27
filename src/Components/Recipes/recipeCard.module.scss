@@ -1,3 +1,5 @@
+@import "../../scss/global.scss";
+
 .stepWrap {
   p {
     display: flex;
@@ -5,5 +7,49 @@
     img {
       margin-right: 4px;
     }
+  }
+}
+
+.stepIngredWrap {
+  background-color: white;
+  padding: 12px 52px;
+  border-radius: 16px;
+  @include for-mobile-screen {
+    padding: 12px 24px;
+    overflow: scroll;
+    height: 600px;
+    width: 300px;
+  }
+
+  .label {
+    display: inline-flex;
+    height: 30px;
+    align-items: center;
+    background-color: #efefef;
+    color: $lightGreenTextColor;
+    padding: 4px 12px;
+    border-radius: 16px;
+    .tag {
+      font-family: $secondaryFont;
+      padding-left: 8px;
+      font-size: 16px;
+    }
+  }
+
+  .ingred {
+    padding: 24px 0px;
+  }
+  h4 {
+    display: flex;
+    align-items: center;
+    font-family: $secondaryFont;
+
+    img {
+      margin-right: 8px;
+    }
+  }
+
+  .steps {
+    padding: 0px 0px 24px 0px;
   }
 }

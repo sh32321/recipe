@@ -1,15 +1,19 @@
 @import "../../scss/global.scss";
+@import url(https://fonts.googleapis.com/css?family=Raleway);
 
 .navWrap {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   padding: 40px 140px;
+  @include for-mobile-screen {
+    flex-wrap: nowrap;
+    padding: 40px 24px;
+  }
   .linkWrap {
     display: flex;
-    a {
-      text-decoration: none;
-    }
+    align-items: center;
+
     li {
       color: $brown;
       list-style: none;
@@ -25,10 +29,33 @@
   }
 }
 
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 48px 200px;
+  justify-content: space-between;
+  @include for-mobile-screen {
+    justify-content: center;
+    padding: 32px 24px;
+  }
+
+  .card {
+    margin: auto;
+    height: 200px;
+    flex: 1 1 200px;
+  }
+}
+
 .container {
   display: flex;
   flex-direction: column;
-  padding: 48px 140px;
+  width: 380px;
+  max-width: 415px;
+  padding-bottom: 160px;
+  @include for-mobile-screen {
+    padding-bottom: 80px;
+  }
+
   .recipesWrap {
     display: flex;
     padding: 0px 100px;
@@ -41,11 +68,12 @@
   }
 
   .descriWrap {
-    padding-left: 32px;
+    padding: 12px 24px;
     .moreBtn {
       background-color: white;
-      padding: 8px 16px;
-      font-size: 14px;
+      padding: 6px 8px;
+      font-size: 12px;
+      color: #7e825f;
     }
   }
 }
@@ -53,6 +81,13 @@
 .tabsContainer {
   max-width: 80%;
   margin: auto;
+  @include for-mobile-screen {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    width: 100%;
+    max-width: 96%;
+  }
 
   .tabsWrap {
     border-radius: 24px;
@@ -60,11 +95,28 @@
     background-color: $darkGreen;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: space-around;
+
+    @media only screen and (max-width: 689px) {
+      overflow: auto;
+      white-space: nowrap;
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+      border-radius: 12px;
+      padding: 12px;
+    }
 
     button {
       letter-spacing: 0;
       transition: 0.3s;
+      @include for-mobile-screen {
+        margin-right: 12px;
+        padding: 8px 10px;
+        font-size: 13px;
+        img {
+          width: 24px;
+        }
+      }
     }
 
     .active {
@@ -95,13 +147,19 @@
 
 .cookTimeWrap {
   display: flex;
+  justify-content: space-between;
   align-items: center;
+
+  .iconWrap {
+    display: flex;
+    align-items: center;
+  }
 
   img {
     margin-right: 2px;
   }
   p {
-    padding-left: 16px;
+    margin-right: 12px;
   }
 }
 
@@ -133,7 +191,6 @@
 .stepIngredWrap {
   background-color: white;
   padding: 12px 24px;
-  // display: inline-block;
   border-radius: 16px;
 
   .ingred {
@@ -155,26 +212,49 @@
 }
 
 .img {
-  width: 300px;
-  height: auto;
   border-radius: 16px;
+  display: block;
+  max-width: 400px;
+  max-height: 460px;
+  height: 460px;
+  margin: auto;
+  @include for-mobile-screen {
+    max-width: 280px;
+    max-height: 340px;
+  }
 }
 
 .footer {
   margin-top: 100px;
+  @include for-mobile-screen {
+    margin-top: 0px;
+  }
 }
 footer {
   background-color: $darkGreen;
   display: flex;
   justify-content: space-between;
   padding: 100px 140px;
+  @include for-mobile-screen {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 100px;
+  }
+
   .newsWrap {
     p {
       font-size: 24px;
       color: $beige;
+      @include for-mobile-screen {
+        font-size: 20px;
+      }
     }
     .inputBtnWrap {
       display: flex;
+      @include for-mobile-screen {
+        flex-direction: column;
+      }
       input {
         background-color: $beige;
         border: none;
@@ -187,6 +267,14 @@ footer {
         display: flex;
         align-items: center;
         background-color: $lightGreen;
+        @include for-mobile-screen {
+          justify-content: space-between;
+          margin-left: 0px;
+          width: 100%;
+          margin-top: 12px;
+          padding: 8px 16px;
+          font-size: 14px;
+        }
         &:hover {
           background-color: white;
           letter-spacing: 2px;
@@ -195,6 +283,9 @@ footer {
 
         img {
           padding-left: 4px;
+          @include for-mobile-screen {
+            padding-left: 0px;
+          }
         }
       }
     }
@@ -211,9 +302,8 @@ footer {
     a:not(.x) {
       padding-right: 16px;
     }
+    @include for-mobile-screen {
+      display: flex;
+    }
   }
-}
-
-.none {
-  display: none;
 }

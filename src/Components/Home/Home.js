@@ -13,8 +13,19 @@ import Faceook from "./assets/icon-facebook.svg"
 import Instagram from "./assets/icon-instagram.svg"
 import Map from "./assets/icon-map.svg"
 import Twitter from "./assets/icon-twitter.svg"
+import AOS from "aos"
+import "aos/dist/aos.css"
+import ScrollReveal from "scrollreveal"
 
 const Home = () => {
+  ScrollReveal().reveal(".headline", { delay: 300, reset: true })
+  ScrollReveal().reveal(".intro", { delay: 500, reset: true })
+
+  AOS.init({
+    duration: 500,
+    delay: 300,
+  })
+
   return (
     <div>
       <header className={styles.navWrap}>
@@ -33,50 +44,58 @@ const Home = () => {
       <div className={styles.heroWrap}>
         <div className={styles.titleWrap}>
           <h3>Foodie</h3>
-          <p>A quick recipes guide you to be a professional chef</p>
+          <p>
+            We do it for the love of food, and we want to help you and other
+            home cooks discover and demystify dishes that pique your culinary
+            curiosities.
+          </p>
           <Link to='/recipes'>
             <button>Get Started</button>
           </Link>
         </div>
-        <img src={Hero} alt='foodie' />
+        <img src={Hero} alt='foodie' data-aos='zoom-in' />
       </div>
       <div className={styles.girlBg}>
         <img src={SittingGirl} alt='foodie' className={styles.girl} />
         <div className={styles.wrap}>
-          <img src={Pasta} alt='foodie' />
+          <img src={Pasta} alt='foodie' data-aos='fade-right' />
           <div className={styles.titleWrap}>
-            <h3>Friendly Recipes</h3>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem
-              soluta earum voluptates cupiditate blanditiis saepe eos
-              exercitationem.
+            <h3 class='headline'>Friendly Recipes</h3>
+            <p class='intro'>
+              Everyone is short on time but Foodie is long on recipes for quick
+              and easy recipes. If sheet pan dinners dominate weeknight meals,
+              we've got your back.
             </p>
-            <button>Find your recipes</button>
+            <Link to='/recipes'>
+              <button>Find your recipes</button>
+            </Link>
           </div>
         </div>
       </div>
       <div className={styles.brownieWrap}>
         <div className={styles.titleWrap}>
-          <h3>Easy for beginner</h3>
-          <p>
-            Lorem ipsum dolor sit amet met met consectetur. Egestas non dolor
-            lobortis duis.
+          <h3 class='headline'>Easy for Beginner</h3>
+          <p class='intro'>
+            We've broken down the elements of cooking to make it simple to
+            search for recipes that speak to you.
           </p>
         </div>
-        <img src={Brownie} alt='foodie' />
+        <img src={Brownie} alt='foodie' data-aos='fade-left' />
       </div>
       <div className={styles.boyBg}>
         <img src={SittingBoy} alt='foodie' className={styles.boy} />
         <div className={styles.wrap}>
-          <img src={Pancake} alt='foodie' />
+          <img src={Pancake} alt='foodie' data-aos='fade-right' />
           <div className={styles.titleWrap}>
-            <h3>Explore Cook Journey!</h3>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem
-              soluta earum voluptates cupiditate blanditiis saepe eos
-              exercitationem.
+            <h3 class='headline'>Explore Cook Journey</h3>
+            <p class='intro'>
+              Whether your economic strategy is motivated by gastronomic
+              delights or your dietary restrictions are guiding your kitchen
+              creations, there are thousands of recipes to explore.
             </p>
-            <button>Find your recipes</button>
+            <Link to='/recipes'>
+              <button>Find your recipes</button>
+            </Link>
           </div>
         </div>
       </div>
