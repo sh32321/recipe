@@ -12,12 +12,16 @@
 
 .stepIngredWrap {
   background-color: white;
-  padding: 12px 52px;
+  padding: 12px 48px;
   border-radius: 16px;
+  overflow: scroll;
+  height: 480px;
+  width: 500px;
+
   @include for-mobile-screen {
     padding: 12px 24px;
     overflow: scroll;
-    height: 600px;
+    height: 380px;
     width: 300px;
   }
 
