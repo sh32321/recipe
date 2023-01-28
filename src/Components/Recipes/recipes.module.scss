@@ -32,8 +32,8 @@
 .cards {
   display: flex;
   flex-wrap: wrap;
-  padding: 48px 200px;
-  justify-content: space-between;
+  padding: 48px 260px;
+  justify-content: space-evenly;
   @include for-mobile-screen {
     justify-content: center;
     padding: 32px 24px;
