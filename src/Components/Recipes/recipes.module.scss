@@ -17,6 +17,8 @@
     li {
       color: $brown;
       list-style: none;
+      cursor: pointer;
+
       &:hover {
         color: #7d6a397a;
         letter-spacing: 2px;
@@ -108,6 +110,7 @@
     button {
       letter-spacing: 0;
       transition: 0.3s;
+      cursor: pointer;
       @include for-mobile-screen {
         margin-right: 12px;
         padding: 8px 10px;

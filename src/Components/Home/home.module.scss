@@ -16,6 +16,8 @@
     li {
       color: $brown;
       list-style: none;
+      cursor: pointer;
+
       &:hover {
         color: #7d6a397a;
         letter-spacing: 2px;
