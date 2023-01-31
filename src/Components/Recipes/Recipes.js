@@ -39,8 +39,6 @@ const Recipes = ({ recipesInfo }) => {
   const [id, setId] = useState()
   const [filter, setFilter] = useState([])
   const [list] = useState(recipes)
-  // const [clickedOutside, setClickedOutside] = useState(false)
-  // const myRef = useRef()
 
   useEffect(() => {
     AOS.init({
@@ -79,48 +77,17 @@ const Recipes = ({ recipesInfo }) => {
     setIsActive(6)
   }
 
-  const clickHandler = (e) => {
-    console.log("clicked from handler")
-    // setOpen(true)
-    // setClick(!click)
-    // setId(e.target.value)
-    // setOnce(false)
-  }
-
-  // const handleClickOutside = (e) => {
-  //   setClick(false)
-  //   if (!myRef.current.contains(e.target)) {
-  //     setClickedOutside(true)
-  //   }
-  // }
-
-  // const handleClickInside = () => setClickedOutside(false)
-  // useEffect(() => {
-  //   console.log("click from useffect")
-  //   document.addEventListener("mousedown", handleClickOutside)
-  //   return () => document.removeEventListener("mousedown", handleClickOutside)
-  // }, [id, click])
-
   const style = {
     position: "absolute",
     top: "50%",
     left: "50%",
     transform: "translate(-50%, -50%)",
-    // width: 400,
-    // bgcolor: "transparent",
-    // border: "2px solid #000",
-    // boxShadow: 0,
-    // p: 4,
-    // opacity: 0.8,
-    // backgroundColor: "transparent",
   }
 
   const AutoList = ({ list }) => {
     return list.map((a, i) => {
       return (
         <div className={styles.container}>
-          {/* <div key={i} className={styles.recipesWrap}> */}
-          {/* <div ref={myRef}> */}
           {once ? (
             <img
               src={a.image}
@@ -131,7 +98,6 @@ const Recipes = ({ recipesInfo }) => {
           ) : (
             <img src={a.image} alt='recipes' className={styles.img} />
           )}
-          {/* </div> */}
           <div className={styles.descriWrap}>
             <h2>{a.title}</h2>
             <p>{a.desc}</p>
@@ -161,27 +127,8 @@ const Recipes = ({ recipesInfo }) => {
                 </Modal>
               </>
             ) : null}
-
-            {/* <div
-              className={styles.infoWrap}
-              onClick={handleClickInside}
-              // ref={myRef}
-              data-aos='fade-down'>
-              {clickedOutside ? (
-                <>
-                  {click && id == a.id ? (
-                    <div>
-                      <RecipeCard id={id} a={a} />
-                    </div>
-                  ) : (
-                    <p className={styles.none}>.</p>
-                  )}
-                </>
-              ) : null}
-            </div> */}
           </div>
         </div>
-        // </div>
       )
     })
   }
